@@ -9,12 +9,16 @@ import java.util.Stack;
 import com.craftinginterpreters.lox.Expr.Assign;
 import com.craftinginterpreters.lox.Expr.Binary;
 import com.craftinginterpreters.lox.Expr.Call;
+import com.craftinginterpreters.lox.Expr.Get;
 import com.craftinginterpreters.lox.Expr.Grouping;
 import com.craftinginterpreters.lox.Expr.Literal;
 import com.craftinginterpreters.lox.Expr.Logical;
+import com.craftinginterpreters.lox.Expr.Set;
+import com.craftinginterpreters.lox.Expr.This;
 import com.craftinginterpreters.lox.Expr.Unary;
 import com.craftinginterpreters.lox.Expr.Variable;
 import com.craftinginterpreters.lox.Stmt.Block;
+import com.craftinginterpreters.lox.Stmt.Class;
 import com.craftinginterpreters.lox.Stmt.Expression;
 import com.craftinginterpreters.lox.Stmt.Function;
 import com.craftinginterpreters.lox.Stmt.If;
@@ -36,8 +40,17 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 	
 	private enum FunctionType {
 		NONE,
-		FUNCTION
+		FUNCTION,
+		INITIALIZER,
+		METHOD
 	}
+	
+	private enum ClassType {
+		NONE,
+		CLASS
+	}
+	
+	private ClassType currentClass = ClassType.NONE;
 	
 	public void resolve(final List<Stmt> statements) {
 		statements.forEach(statement -> {
@@ -66,6 +79,37 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 			Lox.error(entry.getValue(), "The variable is never used.");
 		}
 		endScope();
+		return null;
+	}
+	
+	@Override
+	public Void visitClassStmt(Class stmt) {
+		final ClassType enclosingClass = currentClass;
+		currentClass = ClassType.CLASS;
+		declare(stmt.name);
+		define(stmt.name);
+		
+		if (stmt.superclass != null && stmt.name.lexeme.equals(stmt.superclass.name.lexeme)) {
+			Lox.error(stmt.superclass.name, "A class can't inherit from itself.");
+		}
+		
+		if (stmt.superclass != null) {
+			resolve(stmt.superclass);
+		}
+		
+		beginScope();
+		scopes.peek().put("this", true);
+		
+		for (final Stmt.Function method : stmt.methods) {
+			FunctionType declaration = FunctionType.METHOD;
+			if (method.name.lexeme.equals("init")) {
+				declaration = FunctionType.INITIALIZER;
+			}
+			resolveFunction(method, declaration);
+		}
+		
+		endScope();
+		currentClass = enclosingClass;
 		return null;
 	}
 	
@@ -146,6 +190,9 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 			Lox.error(stmt.keyword, "Can't return from top-level code.");
 		}
 		if (stmt.value != null) {
+			if (currentFunction == FunctionType.INITIALIZER) {
+				Lox.error(stmt.keyword, "Can't return a value from an initializer.");
+			}
 			resolve(stmt.value);
 		}
 		return null;
@@ -192,6 +239,12 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 		});
 		return null;
 	}
+	
+	@Override
+	public Void visitGetExpr(Get expr) {
+		resolve(expr.object);
+		return null;
+	}
 
 	@Override
 	public Void visitGroupingExpr(Grouping expr) {
@@ -210,6 +263,24 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 		resolve(expr.right);
 		return null;
 	}
+	
+	@Override
+	public Void visitSetExpr(Set expr) {
+		resolve(expr.value);
+		resolve(expr.object);
+		return null;
+	}
+	
+	@Override
+	public Void visitThisExpr(This expr) {
+		if (currentClass == ClassType.NONE) {
+			Lox.error(expr.keyword, "Can't use 'this' outside of a class.");
+			return null;
+		}
+		resolveLocal(expr, expr.keyword);
+		return null;
+	}
+
 
 	@Override
 	public Void visitUnaryExpr(Unary expr) {
@@ -233,5 +304,4 @@ public class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 	public Interpreter getInterpreter() {
 		return interpreter;
 	}
-
 }

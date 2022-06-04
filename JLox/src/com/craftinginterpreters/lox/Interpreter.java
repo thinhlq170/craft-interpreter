@@ -6,11 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.craftinginterpreters.lox.Expr.Binary;
+import com.craftinginterpreters.lox.Expr.Get;
 import com.craftinginterpreters.lox.Expr.Grouping;
 import com.craftinginterpreters.lox.Expr.Literal;
 import com.craftinginterpreters.lox.Expr.Logical;
+import com.craftinginterpreters.lox.Expr.Set;
+import com.craftinginterpreters.lox.Expr.This;
 import com.craftinginterpreters.lox.Expr.Unary;
 import com.craftinginterpreters.lox.Expr.Variable;
+import com.craftinginterpreters.lox.Stmt.Class;
 import com.craftinginterpreters.lox.Stmt.Function;
 import com.craftinginterpreters.lox.Stmt.If;
 import com.craftinginterpreters.lox.Stmt.While;
@@ -131,6 +135,15 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 		
 		return function.call(this, arguments);
 	}
+	
+	@Override
+	public Object visitGetExpr(Get expr) {
+		final Object object = evaluate(expr.object);
+		if (object instanceof LoxInstance) {
+			return ((LoxInstance) object).get(expr.name);
+		}
+		throw new RuntimeError(expr.name, "Only instances have properties.");
+	}
 
 	@Override
 	public Object visitGroupingExpr(final Grouping expr) {
@@ -152,6 +165,24 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 			if (!isTruthy(left)) return left;
 		}
 		return evaluate(expr.right);
+	}
+	
+	@Override
+	public Object visitSetExpr(Set expr) {
+		final Object object = evaluate(expr.object);
+		
+		if (!(object instanceof LoxInstance)) {
+			throw new RuntimeError(expr.name, "Only instances have fields.");
+		}
+		
+		final Object value = evaluate(expr.value);
+		((LoxInstance) object).set(expr.name, value);
+		return value;
+	}
+	
+	@Override
+	public Object visitThisExpr(This expr) {
+		return lookUpVariable(expr.keyword, expr);
 	}
 
 	@Override
@@ -228,6 +259,29 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 		executeBlock(stmt.statements, new Environment(environment));
 		return null;
 	}
+	
+	@Override
+	public Void visitClassStmt(Class stmt) {
+		Object superclass = null;
+		if (stmt.superclass != null) {
+			superclass = evaluate(stmt.superclass);
+			if (!(superclass instanceof LoxClass)) {
+				throw new RuntimeError(stmt.superclass.name, "Superclass must be a class");
+			}
+		}
+		
+		environment.define(stmt.name.lexeme, null);
+
+		final Map<String, LoxFunction> methods = new HashMap<>();
+		for (final Stmt.Function method : stmt.methods) {
+			final LoxFunction function = new LoxFunction(method, environment, method.name.lexeme.equals("init"));
+			methods.put(method.name.lexeme, function);
+		}
+
+		final LoxClass klass = new LoxClass(stmt.name.lexeme, (LoxClass)superclass, methods);
+		environment.assign(stmt.name, klass);
+		return null;
+	}
 
 	@Override
 	public Void visitExpressionStmt(final Stmt.Expression stmt) {
@@ -238,7 +292,7 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 	
 	@Override
 	public Void visitFunctionStmt(Function stmt) {
-		final LoxFunction function = new LoxFunction(stmt, environment);
+		final LoxFunction function = new LoxFunction(stmt, environment, false);
 		environment.define(stmt.name.lexeme, function);
 		return null;
 	}
