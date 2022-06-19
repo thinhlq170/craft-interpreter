@@ -1,0 +1,6 @@
+make.exe --dry-run --keep-going --print-directory
+make.exe: Entering directory `e:/learn/programing/interpreter/project/craft-interpreter/Clox'
+gcc -Wall -o main main.o debug.o memory.o chunk.o value.o
+ 
+make.exe: Leaving directory `e:/learn/programing/interpreter/project/craft-interpreter/Clox'
+ 

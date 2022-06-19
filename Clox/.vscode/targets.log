@@ -1,0 +1,424 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-pc-mingw32
+ 
+
+# Make data base, printed on Sun Jun 19 14:46:09 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile
+CURDIR := e:/learn/programing/interpreter/project/craft-interpreter/Clox
+# default
+SHELL := sh.exe
+ 
+# environment
+WINDIR = C:\Windows
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+PYCHARM COMMUNITY EDITION = C:\Program Files\JetBrains\PyCharm Community Edition 2021.1.3\bin;
+# environment
+ONEDRIVE = C:\Users\Admin\OneDrive
+# environment
+MAVEN_HOME = C:\opt\apache-maven-3.8.2
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile (from `makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# environment
+TMP = C:\Users\Admin\AppData\Local\Temp
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9beb4685-181a-433a-97d2-9089bc8689a4-sock
+# environment
+VSCODE_CWD = C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code
+# environment
+PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\MinGW\bin;C:\Program Files\Java\jdk-11.0.11;C:\Program Files\nodejs\;C:\Users\username\algs4;C:\opt\apache-maven-3.8.2\bin;E:\New folder\Git\cmd;E:\tools\gnu_make\GnuWin32\bin;C:\Users\Admin\.cargo\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%IntelliJ IDEA Community Edition%;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin;%PyCharm Community Edition%;C:\Users\Admin\AppData\Roaming\npm;E: 
+\learn\programing
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+USERPROFILE = C:\Users\Admin
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+VSCODE_LOG_STACK = false
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives
+# automatic
+%F = $(notdir $%)
+# environment
+CHROME_CRASHPAD 
+_PIPE_NAME = \\.\pipe\crashpad_4268_BDOUOZQZGFAFZFPD
+# environment
+ _JAVA_OPTIONS = �Xmx512M
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+COMPUTERNAME = ADMIN
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERNAME = Admin
+# environment
+PUBLIC = C:\Users\Public
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+VSCOD 
+E_CODE_CACHE_PATH = C:\Users\Admin\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\ADMIN
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = ADMIN
+# environment
+INTELLIJ IDEA COMMUNITY EDITION = C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.3\bin;
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `makefile', line 1)
+CC = gcc
+# environment
+JAVA_HOME = C:\Program Files\Java\jdk-11.0.11
+# default
+MAKE_VERSION := 3.81
+# makefile
+.DEFAULT_GOAL := all
+# environment
+CLASSPATH = C:\Users\username\algs4\algs4.jar;
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LOCALAPPDATA = C:\Users\Admin\AppData\Local
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system3 
+2\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\1fa9692ca970862365dc969f915639a2-1.68.1-main-sock
+# environment
+HOMEPATH = \Users\Admin
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT  
+= $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+SYSTEMROOT = C:\Windows
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+APPDATA = C:\Users\Admin\AppData\Roaming
+# environment
+TEMP = C:\Users\Admin\AppData\Local\Temp
+# environment
+COMSPEC = C:\Windows\system32\cmd.exe
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SYSTEMDRIVE  
+= C:
+# environment
+SESSIONNAME = Console
+# environment
+PROCESSOR_REVISION = 4e03
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+VSCODE_PID = 4268
+# environment
+USERDOMAIN_ROAMINGPROFILE = ADMIN
+# variable set hash-table stats:
+# Load=94/1024=9%, Rehash=0, Collisions=9/116=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# %USERPROFILE%\AppData\Local\Microsoft\WindowsApps: could not be stat'd.
+# C:\Program File 
+s\Common Files\Oracle\Java\javapath (key C:/Program Files/Common Files/Oracle/Java/javapath, mtime 1634914492): 6 files, no impossibilities.
+# C:\Users\Admin\.cargo\bin (key C:/Users/Admin/.cargo/bin, mtime 1634567969): 17 files, no impossibilities.
+# %PyCharm Community Edition%: could not be stat'd.
+# C:\Windows\System32\WindowsPowerShell\v1.0\ (key C:/Windows/System32/WindowsPowerShell/v1.0/, mtime 1603953849): 30 files, no impossibilities.
+# C:\Windows\System32\Wbem (key C:/Windows/System32/Wbem, mtime 1 
+652422874): 170 files, no impossibilities.
+# . (key e:/learn/programing/interpreter/project/craft-interpreter/Clox, mtime 1655624738): 20 files, no impossibilities.
+# E:\New folder\Git\cmd: could not be stat'd.
+# C:\opt\apache-maven-3.8.2\bin (key C:/opt/apache-maven-3.8.2/bin, mtime 1628078276): 8 files, no impossibilities.
+# C:\Program Files\nodejs\ (key C:/Program Files/nodejs/, mtime 1625929982): 11 files, no impossibilities.
+# E:\learn\programing (key E:/learn/programing, mtime 1642436628): 8 files, no impossibilities.
+# C:\MinGW\bin (key C:/MinGW/bin, mtime 1624528341): 123 files, no impossibilities.
+# %IntelliJ IDEA Community Edition%: could not be stat'd.
+# E:\tools\gnu_make\GnuWin32\bin (key E:/tools/gnu_make/GnuWin32/bin, mtime 1655618505): 5 files, no impossibilities.
+# C:\Windows\System32\OpenSSH\: could not be stat'd.
+# C:\Program Files (x86)\Common Files\Oracle\Java\javapath (key C:/Program Files (x86)/Common Files/Oracle/Java/javapath, mtime 1624248534): 5 files, no impossibilities.
+# C:\Window 
+s (key C:/Windows, mtime 1655563647): 108 files, no impossibilities.
+# C:\Users\username\algs4 (key C:/Users/username/algs4, mtime 1628074950): 3 files, no impossibilities.
+# C:\Program Files\Java\jdk-11.0.11 (key C:/Program Files/Java/jdk-11.0.11, mtime 1629872200): 12 files, no impossibilities.
+# C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/Admin/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1655601643): 4 files, no impossibilities.
+# C:\Windows\system32 (key C:/Windows/ 
+system32, mtime 1655563742): 3010 files, no impossibilities.
+# C:\Users\Admin\AppData\Roaming\npm (key C:/Users/Admin/AppData/Roaming/npm, mtime 1634567506): 15 files, no impossibilities.
+
+# 3555 files, no impossibilities in 22 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all: main
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Col 
+lisions=0/2=0%
+
+chunk.o: chunk.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-19 14:44:55
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `makefile', line 15):
+	gcc -c -Wall chunk.c
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+memory.c:
+#  Implicit rule search has been  
+done.
+#  Last modified 2022-06-19 13:15:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+debug.o: debug.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-19 14:44:54
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `makefile', line 9):
+	gcc -c -Wall debug.c
+	
+
+# Not a target:
+makefile:
+#  Implicit ru 
+le search has been done.
+#  Last modified 2022-06-19 14:45:34
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+value.o: value.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-19 14:45:38
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `makefile', line 18):
+	gcc -c -Wall value.c
+	
+
+# Not a target:
+chun 
+k.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-19 14:38:21
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+debug.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-19 14:44:51
+#  File has been updated.
+#  Successfully updated.
+# variable se 
+t hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+value.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-19 14:13:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+main: main.o debug.o memory.o chunk.o value.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# auto 
+matic
+# @ := main
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := main.o debug.o memory.o chunk.o value.o
+# automatic
+# | := 
+# automatic
+# < := main.o
+# automatic
+# ^ := main.o debug.o memory.o chunk.o value.o
+# automatic
+# ? := main.o debug.o memory.o chunk.o value.o
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/10=10%
+#  commands to execute (from `makefile', line 6):
+	gcc -Wall -o main main.o debug.o memory.o chunk.o value.o
+	
+
+# Not a target:
+main.o:
+#  Implicit rul 
+e search has been done.
+#  Last modified 2022-06-19 14:44:54
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+memory.o: memory.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-19 13:16:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `makefile', line 12):
+	gcc -c -Wall memory.c
+	
+
+# files hash-table 
+ stats:
+# Load=14/1024=1%, Rehash=0, Collisions=0/37=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Sun Jun 19 14:46:09 2022
+
+ 
